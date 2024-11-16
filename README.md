@@ -2,6 +2,15 @@
 
 my barely edited nord-cynthia bspwm config from [gh0stzk's dotfiles](https://github.com/gh0stzk/dotfiles) ;)
 
+### Gallery 
+
+![image](https://github.com/user-attachments/assets/51fa62dc-d732-4b2a-a13d-662fb5b9837d)
+
+![image](https://github.com/user-attachments/assets/079e1b3b-349d-4a71-af9d-2f2dd9218554)
+
+![image](https://github.com/user-attachments/assets/7a0c1f36-8da1-4b40-8aae-ae7a89e86fcd)
+
+
 ### Installation
 
 - Install [gh0stzk's dotfiles](https://github.com/gh0stzk/dotfiles) using their RiceInstaller
@@ -17,6 +26,7 @@ A few notes:
 - `picom` is already set to unredir fullscreen apps (needed for games like osu! to have great performance)
 - Remember you can change some of picom/bspwm settings by right-clicking on desktop and using `bspwm` > `rice editor`!
 - If you use Firefox, I recommend resetting `~/.mozilla` after running the RiceInstaller. It will reset your settings/bookmarks/passwords as well, but I still prefer having classic Firefox over the custom one.
+- Spotify's nord theme is from [Spicetify](https://spicetify.app/)'s `Comfy` theme with the Nord color scheme you can choose from the dropdown menu.
 
 That's pretty much it, enjoy 8)
 
