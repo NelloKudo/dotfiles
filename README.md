@@ -25,7 +25,7 @@ A few notes:
 - The bspwmrc loads my monitors config at `~/.screenlayout/monitors.sh` that I generated using `arandr`; it's currently commented out in `config/bspwm/bspwmrc` but I really recommend creating your own with arandr for the bars to work properly!
 - `picom` is already set to unredir fullscreen apps (needed for games like osu! to have great performance)
 - Remember you can change some of picom/bspwm settings by right-clicking on desktop and using `bspwm` > `rice editor`!
-- If you use Firefox, I recommend resetting `~/.mozilla` after running the RiceInstaller. It will reset your settings/bookmarks/passwords as well, but I still prefer having classic Firefox over the custom one.
+- If you use Firefox and want the default look back, delete the `Chrome` and `user.js` file in `~/.mozilla/firefox/*-default-release`
 - Spotify's nord theme is from [Spicetify](https://spicetify.app/)'s `Comfy` theme with the Nord color scheme you can choose from the dropdown menu.
 
 That's pretty much it, enjoy 8)
