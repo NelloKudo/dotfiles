@@ -26,6 +26,8 @@ elif command -v pacman &> /dev/null; then
     echo "Dependencies installed..."
 fi
 
+echo "Installing config, please wait..."
+
 ## Installing autotiling from pip
 pip install autotiling
 
@@ -44,6 +46,8 @@ cp -rf ./config/rofi ~/.config
 cp -rf ./config/sway ~/.config
 cp -rf ./config/swaylock ~/.config
 cp -rf ./config/waybar ~/.config
+
+echo "Installing themes and fonts, please wait..."
 
 ## Installing fonts..
 cp -rf ./local/share/fonts/Overpass ~/.local/share/fonts
@@ -67,6 +71,11 @@ git clone https://github.com/vinceliuice/Colloid-icon-theme.git
 cd Colloid-icon-theme || echo "Cloning Colloid-icon-theme failed? Please check.."
 ./install.sh -s nord -t red
 cd "$DIR"
+
+echo "Changing default shell.."
+
+## Changing default shell to fish..
+chsh -s $(which fish)
 
 echo "Installation complete! o/"
 echo "Please read the README for info on how to set GTK/Icon theme. o/"

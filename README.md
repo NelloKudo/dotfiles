@@ -12,6 +12,8 @@ my distro-hopping safe sway config! 8)
 
 ### Installation
 
+Please backup your existing config before installing!
+
 Made it simple this time:
 
 ```
