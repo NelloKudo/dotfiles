@@ -28,7 +28,7 @@ input {
 }
 
 output * {
-  bg ~/Pictures/866801.png fill
+  bg ~/.config/sway/866801.png fill
   max_render_time off
   allow_tearing yes
 }
