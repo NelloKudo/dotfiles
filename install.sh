@@ -13,7 +13,7 @@ if command -v dnf &> /dev/null; then
 
     echo "Fedora detected, installing deps.."
     echo "---------------------------------"
-    sudo dnf install -y git sway waybar swayidle swaybg swaylock nm-applet thunar flameshot rofi-wayland dunst kitty fish lxpolkit python3-pip pavucontrol eza wget unzip firefox micro
+    sudo dnf install -y git sway waybar swayidle swaybg swaylock nm-applet thunar flameshot rofi-wayland dunst kitty fish lxpolkit python3-pip pavucontrol eza wget unzip firefox micro luajit epapirus-icon-theme wl-clipboard playerctl light
     echo "---------------------------------"
     echo "Dependencies installed..."
 
@@ -21,7 +21,15 @@ elif command -v pacman &> /dev/null; then
 
     echo "Arch Linux detected, installing deps.."
     echo "---------------------------------"
-    sudo pacman -Sy --noconfirm git sway waybar swayidle swaybg swaylock network-manager-applet thunar flameshot rofi-wayland dunst kitty fish lxpolkit python-pip pavucontrol eza wget unzip firefox micro
+    sudo pacman -Sy --noconfirm git sway waybar swayidle swaybg swaylock network-manager-applet thunar flameshot rofi-wayland dunst kitty fish lxpolkit python-pip pavucontrol eza wget unzip firefox micro luajit epapirus-icon-theme wl-clipboard playerctl
+    
+    ## Installing light from AUR
+    cd ./tmpfiles
+    git clone https://aur.archlinux.org/light.git
+    cd light
+    makepkg -si --noconfirm
+    cd "$DIR"
+
     echo "---------------------------------"
     echo "Dependencies installed..."
 fi
@@ -71,6 +79,9 @@ git clone https://github.com/vinceliuice/Colloid-icon-theme.git
 cd Colloid-icon-theme || echo "Cloning Colloid-icon-theme failed? Please check.."
 ./install.sh -s nord -t red
 cd "$DIR"
+
+## Cleaning tmpfiles..
+rm -rf "$DIR/tmpfiles"
 
 echo "Changing default shell.."
 
