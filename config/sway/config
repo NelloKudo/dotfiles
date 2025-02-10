@@ -1,0 +1,174 @@
+## SwayWM - NelloKudo
+
+## ----------------------------
+## Startup:
+
+exec_always dunst
+exec_always ~/.local/bin/autotiling
+exec_always lxpolkit
+exec_always nm-applet
+
+## ----------------------------
+## WM Config:
+
+set {
+  $mod Mod4
+  $left h
+  $down j
+  $up k
+  $right l
+}
+
+input {
+  type:touchpad {
+    tap enabled
+    natural_scroll enabled
+  }
+  
+}
+
+output * {
+  bg ~/Pictures/866801.png fill
+  max_render_time off
+  allow_tearing yes
+}
+
+default_border pixel 3
+default_floating_border pixel 3
+gaps inner 9
+smart_gaps off
+floating_modifier $mod normal
+
+## -----------------------------
+## Colors:
+
+set {
+  $accent #E46A74
+  $red #A9BDC6
+  $darkgray #1B1D2B
+}
+
+client.focused          $accent $accent $darkgray $accent $accent
+client.focused_inactive $darkgray $darkgray $accent $darkgray $darkgray
+client.unfocused        $darkgray $darkgray $accent $darkgray $darkgray
+client.urgent           $red $red $accent $red $red
+
+## -----------------------------
+## Custom bindsyms:
+
+bindsym {
+  $mod+Return exec kitty
+  $mod+q kill
+  $mod+d exec rofi -show drun
+  $mod+b exec firefox
+  $mod+e exec thunar
+  $mod+w exec rofi -show powermenu
+  $mod+z exec swaylock
+  $mod+Shift+r reload
+  Print exec flameshot gui
+  Mod1+Tab exec workspace next	
+}
+
+## -----------------------------
+## Audio/Brightness bindsyms:
+
+bindsym --locked {
+  XF86MonBrightnessUp exec light -A 5
+  XF86MonBrightnessDown exec light -U 5
+
+  XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+  XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+  XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+  XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+  XF86AudioPlay exec playerctl play-pause
+  XF86AudioNext exec playerctl next
+  XF86AudioPrev exec playerctl previous
+
+  $mod+p exec playerctl play-pause
+  $mod+Period exec playerctl next
+  $mod+Comma exec playerctl previous
+}
+
+## -----------------------------
+## Windows/Workspaces bindsyms:
+
+bindsym {
+  # Change focus
+  $mod+$left focus left
+  $mod+$down focus down
+  $mod+$up focus up
+  $mod+$right focus right
+
+  # Move
+  $mod+Shift+$left move left
+  $mod+Shift+$down move down
+  $mod+Shift+$up move up
+  $mod+Shift+$right move right
+}
+
+bindsym {
+  # Switch to workspace
+  $mod+1 workspace number 1
+  $mod+2 workspace number 2
+  $mod+3 workspace number 3
+  $mod+4 workspace number 4
+  $mod+5 workspace number 5
+  $mod+6 workspace number 6
+  $mod+7 workspace number 7
+  $mod+8 workspace number 8
+  $mod+9 workspace number 9
+  $mod+0 workspace number 10
+  
+  # Move focused container to workspace
+  $mod+Shift+1 move container to workspace number 1
+  $mod+Shift+2 move container to workspace number 2
+  $mod+Shift+3 move container to workspace number 3
+  $mod+Shift+4 move container to workspace number 4
+  $mod+Shift+5 move container to workspace number 5
+  $mod+Shift+6 move container to workspace number 6
+  $mod+Shift+7 move container to workspace number 7
+  $mod+Shift+8 move container to workspace number 8
+  $mod+Shift+9 move container to workspace number 9
+  $mod+Shift+0 move container to workspace number 10
+}
+
+## -----------------------------
+## Layout bindsyms:
+
+bindsym {
+  # Make the current focus fullscreen
+  $mod+f fullscreen
+
+  # Toggle the current focus between tiling and floating mode
+  $mod+space floating toggle
+
+  # Swap focus between the tiling area and the floating area
+  $mod+Shift+space focus mode_toggle
+
+  # Move focus to the parent container
+  $mod+a focus parent
+
+  # Move the currently focused window to the scratchpad
+  $mod+Shift+minus move scratchpad
+
+  # Show the next scratchpad window or hide the focused scratchpad window.
+  # If there are multiple scratchpad windows, this command cycles through them.
+  $mod+minus scratchpad show
+}
+
+## -----------------------------
+## Waybar:
+
+bar swaybar_command waybar
+
+## -----------------------------
+## Workarounds:
+
+for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
+assign [app_id="Waydroid"] workspace 3
+for_window [app_id="Waydroid"] fullscreen enable
+
+## -----------------------------
+
+include /etc/sway/config.d/*

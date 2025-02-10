@@ -1,0 +1,103 @@
+* {
+  border: none;
+  border-radius: 0;
+  font-family: Overpass;
+  font-size: 19px;
+  font-weight: 500;
+}
+
+window#waybar {
+  background-color: rgba(27, 29, 43, 0.8);
+  color: #EAEAEA;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  border-bottom: solid 0px #2A2E3F;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+#workspaces button {
+  padding: 0 5px;
+  color: #A9BDC6;
+  border-radius: 5px;
+}
+
+#workspaces button.focused {
+  background-color: #E46A74;
+  color: #1B1D2B;
+  border-bottom: none;
+}
+
+#workspaces button.urgent {
+  background-color: #E6B670;
+  color: #1B1D2B;
+}
+
+widget > * {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+
+.modules-left > widget > * {
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+.modules-left > widget:first-child > * {
+  margin-left: 6px;
+}
+
+.modules-left > widget:last-child > * {
+  margin-right: 18px;
+}
+
+.modules-right > widget > * {
+  padding: 0 12px;
+  margin-left: 0;
+  margin-right: 0;
+  color: #1B1D2B;
+  background-color: #E76C7A;
+}
+
+.modules-right > widget:first-child > * {
+  border-radius: 5px 0 0 5px;
+}
+
+.modules-right > widget:last-child > * {
+  border-radius: 0 5px 5px 0;
+  margin-right: 6px;
+}
+
+#mode {
+  background: transparent;
+  color: #E46A74;
+}
+
+@keyframes blink {
+  to {
+    color: #EAEAEA;
+  }
+}
+
+#battery.critical:not(.charging) {
+  animation-name: blink;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+label:focus {
+  background-color: #2A2E3F;
+}
+
+tooltip {
+  border-radius: 5px;
+  background: #3E4451;
+}
+
+tooltip label {
+  color: #EAEAEA;
+}

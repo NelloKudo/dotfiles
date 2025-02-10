@@ -1,0 +1,40 @@
+[global]
+monitor = 0
+width = (300, 400)
+height = 300
+offset = 10x10
+origin = top-right
+font = Overpass Bold 12
+line_height = 0
+separator_height = 2
+padding = 8
+horizontal_padding = 10
+frame_width = 2
+separator_color = auto
+sort = yes
+idle_threshold = 120
+markup = full
+format = "<b>%s</b>\n%b"
+alignment = left
+show_age_threshold = 60
+word_wrap = yes
+ignore_newline = no
+stack_duplicates = true
+hide_duplicates_count = false
+icon_position = left
+max_icon_size = 64
+
+[urgency_low]
+background = "#2b2a33"
+foreground = "#fbf1c7"
+frame_color = "#E76C7A"
+
+[urgency_normal]
+background = "#2b2a33"
+foreground = "#fbf1c7"
+frame_color = "#E76C7A"
+
+[urgency_critical]
+background = "#cc241d"
+foreground = "#fbf1c7"
+frame_color = "#fb4934"

@@ -1,0 +1,19 @@
+## SwayLock - NelloKudo 
+## (these are pretty random)
+
+ignore-empty-password
+color=1e1e2ecc
+indicator-radius=100
+indicator-thickness=15
+key-hl-color=89b4fa  
+bs-hl-color=e64553     
+separator-color=1e1e2e
+line-color=1e1e2e
+inside-color=252535
+inside-clear-color=89b4fa 
+inside-ver-color=89b4fa    
+inside-wrong-color=e64553  
+ring-color=89b4fa     
+ring-ver-color=89b4fa  
+ring-clear-color=89b4fa 
+ring-wrong-color=e64553 
