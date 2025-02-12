@@ -33,7 +33,7 @@ elif command -v pacman &> /dev/null; then
 
     echo "Arch Linux detected, installing deps.."
     echo "---------------------------------"
-    sudo pacman -Sy --noconfirm git sway waybar swayidle swaybg swaylock autotiling lxsession network-manager-applet thunar flameshot rofi-wayland dunst kitty fish python-pip pavucontrol eza wget unzip firefox micro luajit epapirus-icon-theme wl-clipboard playerctl
+    sudo pacman -Sy --noconfirm git sway waybar swayidle swaybg swaylock grim xdg-desktop-portal-gtk autotiling lxsession network-manager-applet thunar flameshot rofi-wayland dunst kitty fish python-pip pavucontrol eza wget unzip firefox micro luajit epapirus-icon-theme wl-clipboard playerctl
     
     ## Installing light from AUR
     cd ./tmpfiles
