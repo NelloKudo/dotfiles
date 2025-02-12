@@ -8,12 +8,24 @@
 
 DIR="$PWD"
 
+mkdir -p ./tmpfiles
+mkdir -p ~/.local/share/themes
+mkdir -p ~/.local/share/icons
+mkdir -p ~/.local/share/fonts
+mkdir -p ~/.local/bin
+mkdir -p ~/.config
+
+
 ## Installing dependencies for Arch/Fedora:
 if command -v dnf &> /dev/null; then
 
     echo "Fedora detected, installing deps.."
     echo "---------------------------------"
     sudo dnf install -y git sway waybar swayidle swaybg swaylock nm-applet thunar flameshot rofi-wayland dunst kitty fish lxpolkit python3-pip pavucontrol eza wget unzip firefox micro luajit epapirus-icon-theme wl-clipboard playerctl light
+
+	## Installing autotiling from pip
+	pip install autotiling
+
     echo "---------------------------------"
     echo "Dependencies installed..."
 
@@ -21,7 +33,7 @@ elif command -v pacman &> /dev/null; then
 
     echo "Arch Linux detected, installing deps.."
     echo "---------------------------------"
-    sudo pacman -Sy --noconfirm git sway waybar swayidle swaybg swaylock network-manager-applet thunar flameshot rofi-wayland dunst kitty fish lxpolkit python-pip pavucontrol eza wget unzip firefox micro luajit epapirus-icon-theme wl-clipboard playerctl
+    sudo pacman -Sy --noconfirm git sway waybar swayidle swaybg swaylock autotiling lxsession network-manager-applet thunar flameshot rofi-wayland dunst kitty fish python-pip pavucontrol eza wget unzip firefox micro luajit epapirus-icon-theme wl-clipboard playerctl
     
     ## Installing light from AUR
     cd ./tmpfiles
@@ -30,20 +42,14 @@ elif command -v pacman &> /dev/null; then
     makepkg -si --noconfirm
     cd "$DIR"
 
+    ## Symlinking autotiling to ~/.local/bin
+    ln -s /usr/bin/autotiling ~/.local/bin
+	
     echo "---------------------------------"
     echo "Dependencies installed..."
 fi
 
 echo "Installing config, please wait..."
-
-## Installing autotiling from pip
-pip install autotiling
-
-mkdir -p ~/.local/share/themes
-mkdir -p ~/.local/share/icons
-mkdir -p ~/.local/share/fonts
-mkdir -p ~/.config
-mkdir -p ./tmpfiles
 
 ## Installing .config files..
 cp -rf ./config/dunst ~/.config
@@ -59,9 +65,14 @@ echo "Installing themes and fonts, please wait..."
 
 ## Installing fonts..
 cp -rf ./local/share/fonts/Overpass ~/.local/share/fonts
+
 mkdir -p ~/.local/share/fonts/RobotoMono
 wget -O ./tmpfiles/RobotoMono.zip "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/RobotoMono.zip"
 unzip -d ~/.local/share/fonts/RobotoMono -q ./tmpfiles/RobotoMono.zip
+
+mkdir -p ~/.local/share/fonts/FiraCodeMono
+wget -O ./tmpfiles/FiraCodeMono.zip "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.3.0/FiraCode.zip"
+unzip -d ~/.local/share/fonts/FiraCodeMono -q ./tmpfiles/FiraCodeMono.zip
 
 ## Setting dark theme for GTK4-apps
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
